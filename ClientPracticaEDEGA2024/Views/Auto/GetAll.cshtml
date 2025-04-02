@@ -1,0 +1,96 @@
+﻿@model AutoModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>
+
+    <div class="container">
+        <div class=" =" row>
+            <div class=" =col-12"
+              <h2>Autos</h2>
+            </div>
+        </div>
+
+        <div class="col-1">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h5>Seleccione + para poder agregar un Auto</h5>
+                <hr />
+            </div>
+        </div>
+        @Html.ActionLink("+", "Formulario", "Auto", new { @class = "btn btn-succes" })
+        <div class="row">
+            <div class="col-md-12">
+                @if (Model.Autos != null)
+                {
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Editar</th>
+                                <th scope="col">VIN</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">KM</th>
+                                <th scope="col">Año Fabricacion</th>
+                                <th scope="col">Ingreso</th>
+                                <th scope="col">Estatus</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Sucursal</th>
+                                <th scope="col">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (AutoModel auto in Model.Autos)
+
+                            {
+
+
+                                <tr>
+                                    <td>
+                                        <a class="btn btn-primary" href="@Url.Action("Formulario","Auto",new{IdAuto = auto.au_id})">
+
+                                            @*Editar*@
+                                        </a>
+
+                                    </td>
+
+                                    <th scope="col">@auto.au_vin</th>
+                                    <th scope="col">@auto.au_color</th>
+                                    <th scope="col">@auto.au_precio</th>
+                                    <th scope="col">@auto.au_kilometraje</th>
+                                    <th scope="col">@auto.au_anio_fabricacion</th>
+                                    <th scope="col">@auto.au_fecha_ingreso</th>
+                                    <th scope="col">@auto.au_estatus</th>
+                                    <th scope="col">@auto.ma_nombre</th>
+                                    <th scope="col">@auto.mo_nombre</th>
+                                    <th scope="col">@auto.su_nombre</th>
+
+
+                                    <td>
+                                        <a class="btn btn-success" href="@Url.Action("Delete","Auto",new{IdAuto = auto.au_id})">
+
+                                            @*Eliminar*@
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else//Mostrar error
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Error
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</h2>
+
+
