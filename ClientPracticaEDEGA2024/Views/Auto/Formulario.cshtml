@@ -1,6 +1,80 @@
 ﻿@model AutoModel
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+
+
+<h2>Formulario</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Formulario", "Auto", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-12">
+                <h2>Agregar un nuevo auto</h2>
+            </div>
+
+
+        </div> <!-- Cierre del primer row -->
+
+        <div class="row">
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_id)
+                @Html.TextBoxFor(model => model.au_id, new { @class = "form-control" })
+            </div>
+
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_vin)
+                @Html.TextBoxFor(model => model.au_vin, new { @class = "form-control" })
+            </div>
+
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_color)
+                @Html.TextBoxFor(model => model.au_color, new { @class = "form-control" })
+            </div>
+
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_precio)
+                @Html.TextBoxFor(model => model.au_precio, new { @class = "form-control" })
+            </div>
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_kilometraje)
+                @Html.TextBoxFor(model => model.au_kilometraje, new { @class = "form-control" })
+            </div>
+
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_anio_fabricacion)
+                @Html.TextBoxFor(model => model.au_anio_fabricacion, new { @class = "form-control" })
+            </div>
+
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_fecha_ingreso)
+                @Html.TextBoxFor(model => model.au_fecha_ingreso, new { @class = "form-control" })
+            </div>
+            <div class="col-4">
+                @Html.LabelFor(model => model.au_estatus)
+                @Html.TextBoxFor(model => model.au_estatus, new { @class = "form-control" })
+            </div>
+            <div class="col-4">
+                @Html.LabelFor(model => model.su_id)
+                @Html.TextBoxFor(model => model.su_id, new { @class = "form-control", type = "number" })
+            </div>
+            <div class="col-4">
+                @Html.LabelFor(model => model.mo_id)
+                @Html.TextBoxFor(model => model.mo_id, new { @class = "form-control", type = "number" })
+            </div>
+
+            <div class="col-4">
+                @Html.LabelFor(model => model.ma_id)
+                @Html.TextBoxFor(model => model.ma_id, new { @class = "form-control", type = "number" })
+            </div>
+
+            <div class="row pt-3">
+                <div class="col-1">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+                <div class="col-1">
+                    @Html.ActionLink("Cancelar", "GetAll", "Auto", null, new { @class = "btn btn-danger" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

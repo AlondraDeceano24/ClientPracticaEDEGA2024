@@ -22,7 +22,7 @@
                 <hr />
             </div>
         </div>
-        @Html.ActionLink("+", "Formulario", "Auto", new { @class = "btn btn-succes" })
+        @Html.ActionLink("+", "Formulario", "Auto")
         <div class="row">
             <div class="col-md-12">
                 @if (Model.Autos != null)
@@ -52,8 +52,8 @@
 
                                 <tr>
                                     <td>
-                                        <a class="btn btn-primary" href="@Url.Action("Formulario","Auto",new{IdAuto = auto.au_id})">
-
+                                        <a class="btn btn-primary" href="@Url.Action("Formulario","Auto",new{au_id = auto.au_id})">
+                                            Edit
                                             @*Editar*@
                                         </a>
 
@@ -72,8 +72,8 @@
 
 
                                     <td>
-                                        <a class="btn btn-success" href="@Url.Action("Delete","Auto",new{IdAuto = auto.au_id})">
-
+                                        <a class="btn btn-success" href="@Url.Action("Delete","Auto",new{au_id = auto.au_id})">
+                                            Delete
                                             @*Eliminar*@
                                         </a>
                                     </td>
